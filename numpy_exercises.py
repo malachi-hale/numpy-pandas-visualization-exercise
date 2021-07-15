@@ -35,19 +35,19 @@ a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # Use python's built in functionality/operators to determine the following:
 # Exercise 1 - Make a variable called sum_of_a to hold the sum of all the numbers in above list
 sum_of_a = sum(a)
-
-
+a_array = np.array(a)
+print("The sum of a is:", a_array.sum())
 # Exercise 2 - Make a variable named min_of_a to hold the minimum of all the numbers in the above list
 min_of_a = min(a)
-
+print("The minimum of a is:", a_array.min())
 
 # Exercise 3 - Make a variable named max_of_a to hold the max number of all the numbers in the above list
 max_of_a = max(a)
-
+print("The maximum of a is:", a_array.max())
 
 # Exercise 4 - Make a variable named mean_of_a to hold the average of all the numbers in the above list
 mean_of_a = sum(a)/len(a)
-
+print("The mean of a is:", a_array.mean())
 # Exercise 5 - Make a variable named product_of_a to hold the product of multiplying all the numbers in the above list together
 def product(list):
     result = 1
@@ -55,7 +55,7 @@ def product(list):
         result = result * item 
     return result 
 product_of_a = product(a)
-
+print("The product of a is", a_array.prod())
 # Exercise 6 - Make a variable named squares_of_a. It should hold each number in a squared like [1, 4, 9, 16, 25...]
 def squared(list):
     new_list = []
@@ -64,6 +64,7 @@ def squared(list):
         new_list.append(item)
     return new_list 
 squares_of_a = squared(a)
+print("The square of all the values in a is:", np.square(a_array))
 # Exercise 7 - Make a variable named odds_in_a. It should hold only the odd numbers
 def find_odd(list):
     list_of_odds = []
@@ -72,7 +73,7 @@ def find_odd(list):
             list_of_odds.append(item)
     return list_of_odds
 odds_in_a = find_odd(a)
-
+print("The odd numbers in a are:", a_array[a_array% 2 != 0])
 # Exercise 8 - Make a variable named evens_in_a. It should hold only the evens.
 def find_even(list):
     list_of_even = []
@@ -81,7 +82,7 @@ def find_even(list):
             list_of_even.append(item)
     return list_of_even
 evens_in_a = find_even(a)
-
+print("The even numbers in a are:", a_array[a_array% 2 == 0])
 
 ## What about life in two dimensions? A list of lists is matrix, a table, a spreadsheet, a chessboard...
 ## Setup 2: Consider what it would take to find the sum, min, max, average, sum, product, and list of squares for this list of two lists.
@@ -98,27 +99,28 @@ b_matrix = np.array(b)
 print("The sum of b", np.sum(b_matrix))
 
 # Exercise 2 - refactor the following to use numpy. 
-min_of_b = min(b[0]) if min(b[0]) <= min(b[1]) else min(b[1])  
+min_of_b = min(b[0]) if min(b[0]) <= min(b[1]) else min(b[1]) 
+print("The min of b is", np.min(b_matrix)) 
 
 # Exercise 3 - refactor the following maximum calculation to find the answer with numpy.
 max_of_b = max(b[0]) if max(b[0]) >= max(b[1]) else max(b[1])
-
+print("The max of b is", np.max(b_matrix))
 
 # Exercise 4 - refactor the following using numpy to find the mean of b
 mean_of_b = (sum(b[0]) + sum(b[1])) / (len(b[0]) + len(b[1]))
-
+print("The sum of b is", np.sum(b_matrix))
 # Exercise 5 - refactor the following to use numpy for calculating the product of all numbers multiplied together.
 product_of_b = 1
 for row in b:
     for number in row:
         product_of_b *= number
-
+print("The product of b is", np.prod(b_matrix))
 # Exercise 6 - refactor the following to use numpy to find the list of squares 
 squares_of_b = []
 for row in b:
     for number in row:
         squares_of_b.append(number**2)
-
+print("The square of every value in b is:", np.square(b_matrix))
 
 # Exercise 7 - refactor using numpy to determine the odds_in_b
 odds_in_b = []
@@ -126,17 +128,17 @@ for row in b:
     for number in row:
         if(number % 2 != 0):
             odds_in_b.append(number)
-
-
+print("The odd values in b are:", b_matrix[b_matrix % 2 != 0])
 # Exercise 8 - refactor the following to use numpy to filter only the even numbers
 evens_in_b = []
 for row in b:
     for number in row:
         if(number % 2 == 0):
             evens_in_b.append(number)
+print("The even values in b are:", b_matrix[b_matrix % 2 == 0])
 
 # Exercise 9 - print out the shape of the array b.
-print(len(b), "by", len(b[0]))
+print("The shape of b is:", np.shape(b_matrix))
 # Exercise 10 - transpose the array b.
 transposed_matrix = [[0,0],
     [0 ,0],
@@ -144,15 +146,15 @@ transposed_matrix = [[0,0],
 for i in range(len(b)):
     for j in range(len(b[0])):
         transposed_matrix[j][i] = b[i][j]
-for item in transposed_matrix:
-    print(item)
+
+print("The transpoed b matrix is:", b_matrix.transpose())
     
 # Exercise 11 - reshape the array b to be a single list of 6 numbers. (1 x 6)
 list_of_b = []
 for i in range(len(b)):
     for j in range(len(b[0])):
         list_of_b.append(b[i][j])
-print(list_of_b)
+print("The single list is:", b_matrix.tolist()[0])
 # Exercise 12 - reshape the array b to be a list of 6 lists, each containing only 1 number (6 x 1)
 six_lists = []
 for i in range(len(b)):
@@ -161,7 +163,9 @@ for i in range(len(b)):
 def list_of_lists(list):
     return [[item] for item in list]
 list_of_six_lists = list_of_lists(six_lists)
-print(list_of_six_lists)
+print("The list of lists is:", b_matrix.reshape(6, 1).tolist())
+
+
 
 ## Setup 3
 c = [
