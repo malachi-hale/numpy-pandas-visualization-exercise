@@ -30,10 +30,55 @@ print("The largest values are", fruits_pandas.value_counts().nlargest(n = 1, kee
 #10
 print("The smallest values are", fruits_pandas.value_counts().nsmallest(n = 1, keep = "all"))
 ##Part 2
+print("\n")
 #1
+print("Capitalize everything ")
 print(fruits_pandas.str.capitalize())
+print("\n")
+
 #2
+print("capitalize A:")
 print(fruits_pandas.str.replace('a', 'A'))
+print("\n")
+
 #3 
-vowels = 'aeiou'
-print(fruit.count(vowels) for fruit in fruits_pandas.values)
+print("vowel counts:")
+print(fruits_pandas[fruits_pandas.str.count(r'[aeiou]')])
+print("\n")
+
+
+#4 
+print("highest length:")
+max_length = fruits_pandas.str.len().max()
+print(fruits_pandas[fruits_pandas.str.len() == max_length])
+print("\n")
+
+
+#5
+print("length greater than 5:")
+length_of_fruits = fruits_pandas.str.len()
+print(fruits_pandas[length_of_fruits >= 5])
+print("\n")
+
+#6
+print("two or more o's:")
+print(fruits_pandas[fruits_pandas.apply(lambda x: x.count('o') >= 2)])
+print("\n")
+
+
+#7
+print("contains berry:")
+print(fruits_pandas[fruits_pandas.apply(lambda x: "berry" in x)])
+print("\n")
+
+
+#8
+print("contains apple:")
+print(fruits_pandas[fruits_pandas.apply(lambda x: "apple" in x)])
+print("\n")
+
+
+#9
+print("greatest number of vowels:")
+print(fruits_pandas[fruits_pandas.str.count(r'[aeiou]').max()])
+print("\n")
