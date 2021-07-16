@@ -29,3 +29,11 @@ print(fruits_pandas.value_counts())
 print("The largest values are", fruits_pandas.value_counts().nlargest(n = 1, keep = "all"))
 #10
 print("The smallest values are", fruits_pandas.value_counts().nsmallest(n = 1, keep = "all"))
+##Part 2
+#1
+print(fruits_pandas.str.capitalize())
+#2
+print(fruits_pandas.str.replace('a', 'A'))
+#3 
+vowels = 'aeiou'
+print(fruit.count(vowels) for fruit in fruits_pandas.values)
