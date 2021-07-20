@@ -29,7 +29,7 @@ print(df.sort_values(by='passing_english', ascending=False))
 print(df.sort_values(["passing_english", "name"], ascending = (True, True)))
 
 #1d 
-print(df.sort_values(["passing_english", "english"], ascending = (True, True)))
+print(df.sort_values(["passing_english", "english"], ascending = (False, False)))
 
 #1e 
 df['overall grade'] = (df.english + df.math + df.reading)/3
