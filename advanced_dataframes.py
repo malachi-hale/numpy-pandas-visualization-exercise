@@ -102,7 +102,6 @@ LIMIT 1
 '''
 oldest = pd.read_sql(oldest_to_date, employees_url)
 print(oldest)
-oldest_date = titles.to_date.sort_value(ascending = False).tail(1)
 
 #11
 newest_to_date = '''
@@ -113,5 +112,5 @@ ORDER BY to_date DESC
 LIMIT 1
 '''
 newest_dates = pd.read_sql(newest_to_date, employees_url)
+
 print(newest_dates)
-newest_date = titles.to_date.sort_value(ascending = False).head(1)
