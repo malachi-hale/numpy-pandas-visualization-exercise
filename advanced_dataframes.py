@@ -90,8 +90,8 @@ SELECT DISTINCT title
 FROM titles
 '''
 unique = pd.read_sql(unique_titles, employees_url)
-distinct_titles = titles.drop_duplicates()
-print("There are", distinct_titles.size, "unique titles in the titles table.")
+distinct_titles = titles.title.value_counts()
+print("There are", len(distinct_titles), "unique titles in the titles table.")
 
 #10
 oldest_to_date = '''
@@ -102,6 +102,7 @@ LIMIT 1
 '''
 oldest = pd.read_sql(oldest_to_date, employees_url)
 print(oldest)
+oldest_date = titles.to_date.sort_value(ascending = False).tail(1)
 
 #11
 newest_to_date = '''
@@ -113,3 +114,4 @@ LIMIT 1
 '''
 newest_dates = pd.read_sql(newest_to_date, employees_url)
 print(newest_dates)
+newest_date = titles.to_date.sort_value(ascending = False).head(1)
