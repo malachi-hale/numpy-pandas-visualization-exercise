@@ -107,13 +107,37 @@ def odd_numbers(numbers):
 print(even_numbers(numbers))
 
 # Exercise 12 - Make a variable named positive_numbers that holds only the positive numbers
-
+def positive_numbers(numbers):
+    positives = []
+    for number in numbers:
+        if number > 0:
+            positives.append(number)
+    return positives
+print(positive_numbers(numbers))
 # Exercise 13 - Make a variable named negative_numbers that holds only the negative numbers
-
+def negative_numbers(numbers):
+    negatives = []
+    for number in numbers:
+        if number < 0:
+            negatives.append(number)
+    return negatives
+print(negative_numbers(numbers))
 # Exercise 14 - use a list comprehension w/ a conditional in order to produce a list of numbers with 2 or more numerals
-
+def two_or_more_numerals(numbers):
+    two_or_more = []
+    for number in numbers:
+        if len(abs(number)) >= 2:
+            two_or_more.append(number)
+    return two_or_more
+print(two_or_more_numerals(numbers))
 # Exercise 15 - Make a variable named numbers_squared that contains the numbers list with each element squared. Output is [4, 9, 16, etc...]
-
+def numbers_squared(numbers):
+    squared = []
+    for number in numbers:
+        number_squared = number ** 2
+        squared.append(number_squared)
+    return squared
+print(numbers_squared(numbers))
 # Exercise 16 - Make a variable named odd_negative_numbers that contains only the numbers that are both odd and negative.
 
 # Exercise 17 - Make a variable named numbers_plus_5. In it, return a list containing each number plus five. 
