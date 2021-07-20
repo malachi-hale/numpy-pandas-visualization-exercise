@@ -126,7 +126,7 @@ print(negative_numbers(numbers))
 def two_or_more_numerals(numbers):
     two_or_more = []
     for number in numbers:
-        if len(abs(number)) >= 2:
+        if len(str(abs(number))) >= 2:
             two_or_more.append(number)
     return two_or_more
 print(two_or_more_numerals(numbers))
@@ -139,7 +139,40 @@ def numbers_squared(numbers):
     return squared
 print(numbers_squared(numbers))
 # Exercise 16 - Make a variable named odd_negative_numbers that contains only the numbers that are both odd and negative.
-
+def odd_negative_numbers(numbers):
+    odd_negative = []
+    for number in numbers:
+        if number < 0 and number % 2 != 0:
+            odd_negative.append(number)
+    return odd_negative
+print(odd_negative_numbers(numbers))
 # Exercise 17 - Make a variable named numbers_plus_5. In it, return a list containing each number plus five. 
-
+def numbers_plus_five(numbers):
+    plus_five = []
+    for number in numbers:
+        number_plus_five = number + 5
+        plus_five.append(number_plus_five)
+    return plus_five
+print(numbers_plus_five(numbers))
 # BONUS Make a variable named "primes" that is a list containing the prime numbers in the numbers list. *Hint* you may want to make or find a helper function that determines if a given number is prime or not.
+def is_prime(n):
+    if n > 1 and n != 2: 
+        for i in range(2, n):
+            if n % i == 0:
+                return False 
+            else: 
+                return True 
+    elif n == 2:
+            return True
+    elif n < 0: 
+        return False
+
+def find_primes(numbers):
+    primes = []
+    for number in numbers:
+        if (is_prime(number) == True):
+            primes.append(number)
+    return(primes)
+
+
+print(find_primes(numbers))
