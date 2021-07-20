@@ -32,12 +32,12 @@ print(df.sort_values(["passing_english", "name"], ascending = (True, True)))
 print(df.sort_values(["passing_english", "english"], ascending = (False, False)))
 
 #1e 
-df['overall grade'] = (df.english + df.math + df.reading)/3
+df['overall grade'] = round((df.english + df.math + df.reading)/3, 0)
 print(df)
 
 #2a
 mpg = data('mpg')
-print(mpg.shape)
+print('There are' , mpg.shape[0], "rows and", mpg.shape[1], "columns.")
 #There are 234 rows and 11 columns. 
 
 #2b
